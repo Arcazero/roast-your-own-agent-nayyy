@@ -13,6 +13,11 @@ LINE = (
     "account and delusions of grandeur."
 )
 
+# Gate check: the entry must be a single line of 1-200 chars, non-whitespace, UTF-8.
+assert 1 <= len(LINE) <= 200, "entry line must be 1-200 characters"
+assert LINE.strip(), "entry line must be non-whitespace"
+LINE.encode("utf-8")
+
 
 def main() -> None:
     out_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
